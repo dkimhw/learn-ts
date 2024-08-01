@@ -7,6 +7,7 @@ const url = 'https://jsonplaceholder.typicode.com/todos/1';
 let data: any;
 const getData = async (url: any) => {
   let res = await axios.get(url);
+  console.log(res);
   return res.data;
 }
 
