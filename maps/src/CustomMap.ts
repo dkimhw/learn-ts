@@ -2,6 +2,15 @@ import { Loader } from "@googlemaps/js-api-loader"
 import { User } from "./User";
 import { Company } from "./Company";
 
+// instructions to every other class
+// on how they can be an argument to `addMarker`
+interface Mappable {
+  location: {
+    lat: number,
+    lng: number
+  }
+}
+
 export class CustomMap {
   private googleMapLoader: Loader;
   private map : google.maps.Map;
@@ -17,7 +26,7 @@ export class CustomMap {
     try {
       const { Map } = await this.googleMapLoader.importLibrary("maps") as google.maps.MapsLibrary;
       const map = new Map(document.getElementById(divId) as HTMLElement, {
-        center: center, zoom: 3, mapId: '1'
+        center: center, zoom: 1.75, mapId: '1'
       });
       this.map = map;
     } catch (e) {
@@ -25,7 +34,7 @@ export class CustomMap {
     }
   }
 
-  async addMarker(mappable: User | Company): Promise<void> {
+  async addMarker(mappable: Mappable): Promise<void> {
     try {
       const { AdvancedMarkerElement } = await this.googleMapLoader.importLibrary("marker");
       new AdvancedMarkerElement({

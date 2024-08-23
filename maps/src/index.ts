@@ -6,6 +6,8 @@ dotenv.config();
 
 const cm = new CustomMap(process.env.API_KEY || "")
 const user = new User();
+const company = new Company();
 
-cm.initMap("map", user.location);
+cm.initMap("map", { lat: 0, lng: 0});
 cm.addMarker(user);
+cm.addMarker(company)
