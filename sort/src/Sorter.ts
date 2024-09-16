@@ -1,9 +1,16 @@
-import { NumbersCollection } from "./NumbersCollection";
+
+// define interface that must be implemented if you want to use Sorter
+export interface Sortable {
+  length: number;
+  compare(leftIndex: number, rightIndex: number): boolean;
+  swap(leftIndex: number, rightIndex: number): void;
+}
 
 export class Sorter {
-  collection: NumbersCollection;
+  collection: Sortable;
 
-  constructor(collection: NumbersCollection) {
+  // takes in sortable data type - so any object that implements sortable can be passed as argument
+  constructor(collection: Sortable) {
     this.collection = collection;
   }
 

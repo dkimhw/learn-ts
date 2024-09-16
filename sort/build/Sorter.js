@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Sorter = void 0;
 class Sorter {
+    // takes in sortable data type - so any object that implements sortable can be passed as argument
     constructor(collection) {
         this.collection = collection;
     }
