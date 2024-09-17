@@ -4,19 +4,16 @@ import { CharactersCollection } from "./CharactersCollection";
 import { LinkedList } from "./LinkedList";
 
 const nums = new NumbersCollection([10, 3, -5, 0])
-const sorter = new Sorter(nums);
-
 
 console.log("Before sort: ", nums)
-sorter.sort();
+nums.sort();
 console.log("After sort: ", nums);
 
 
 const chars = new CharactersCollection('Xaaaa');
-const sorterChars = new Sorter(chars);
 
 console.log("Before sort: ", chars)
-sorterChars.sort();
+chars.sort();
 console.log("After sort: ", chars);
 
 
@@ -26,6 +23,5 @@ linkedList.add(-10);
 linkedList.add(-3);
 linkedList.add(4);
 
-const sorterLL = new Sorter(linkedList);
-sorterLL.sort();
+linkedList.sort();
 linkedList.print();

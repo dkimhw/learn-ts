@@ -6,21 +6,18 @@ export interface Sortable {
   swap(leftIndex: number, rightIndex: number): void;
 }
 
-export class Sorter {
-  collection: Sortable;
-
-  // takes in sortable data type - so any object that implements sortable can be passed as argument
-  constructor(collection: Sortable) {
-    this.collection = collection;
-  }
+export abstract class Sorter {
+  abstract compare(leftIndex: number, rightIndex: number): boolean;
+  abstract swap(leftIndex: number, rightIndex: number): void;
+  abstract length: number;
 
   sort(): void {
-    const { length } = this.collection;
+    const { length } = this;
 
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
-        if (this.collection.compare(j, j + 1)) {
-          this.collection.swap(j, j + 1)
+        if (this.compare(j, j + 1)) {
+          this.swap(j, j + 1)
         }
       }
     }
